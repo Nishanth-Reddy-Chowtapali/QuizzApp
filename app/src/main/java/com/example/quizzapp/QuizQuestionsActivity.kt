@@ -56,7 +56,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setQuestion() {
-
+        defaultOptionsView()
         val question: Question = mQuestionsList!![mCurrentPosition - 1]
         progressBar?.progress = mCurrentPosition
         ivImage?.setImageResource(question.image)
@@ -150,6 +150,13 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
                         }
                         answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                        if(mCurrentPosition == mQuestionsList!!.size){
+                            btnSubmit?.text = "Finish"
+                        }else {
+                            btnSubmit?.text = "GO TO NEXT QUESTION"
+                        }
+                        mSelectedOptionPosition = 0
                     }
             }
         }
