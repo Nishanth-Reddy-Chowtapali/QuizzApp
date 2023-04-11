@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
@@ -142,6 +143,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         when{
                             mCurrentPosition <= mQuestionsList!!.size -> {
                                 setQuestion()
+                            }
+                            else ->{
+                                Toast.makeText(this, "Congrats you made it to the end", Toast.LENGTH_LONG).show()
                             }
                         }
                     }else{
